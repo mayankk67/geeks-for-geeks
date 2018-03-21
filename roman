@@ -1,0 +1,49 @@
+/*Given an string in roman no format (s)  your task is to convert it to integer  */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG 
+{
+    public static int val(char ch)
+    {
+        switch(ch)
+        {
+            case 'I': return 1;
+            case 'V': return 5;
+            case 'X': return 10;
+            case 'L': return 50;
+            case 'C': return 100;
+            case 'D': return 500;
+            case 'M': return 1000; 
+            default: return 0;
+        }
+    }
+	public static void main (String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		sc.nextLine();
+		while(t--!=0)
+		{
+		String str=sc.nextLine();
+		int i,l;
+		l=str.length();
+		char ch,nch;
+		ch=str.charAt(l-1);
+		int sum=val(ch);
+		for(i=l-2;i>=0;i--)
+		{
+		    ch=str.charAt(i);
+		    nch=str.charAt(i+1);
+		    if(val(ch)>=val(nch))
+		        sum+=val(ch);
+		    else sum-=val(ch);
+		}
+		System.out.println(sum);
+	    
+	}
+}
+    
+}
